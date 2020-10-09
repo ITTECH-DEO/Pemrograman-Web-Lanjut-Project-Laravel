@@ -18,7 +18,7 @@
         <!-- Author -->
         <p class="lead">
           by
-          <a href="https://bioskopkeren.network/tv-series/drakor-baru/">Start FILM</a>
+          DEO FAHMAWAN</a>
         </p>
 
         <hr>
