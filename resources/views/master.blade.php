@@ -46,9 +46,9 @@
 		<link rel="stylesheet" href="Side/css/style.css">
 </head>
 <body>
-<div class="wrapper d-flex align-items-stretch">
+<div class="wrapper d-flex align-items-stretch" >
 			<nav id="sidebar">
-				<div class="custom-menu">   
+				<div class="custom-menu" >   
 					<button type="button" id="sidebarCollapse" class="btn btn-primary">
 	        </button>
         </div>
@@ -67,6 +67,9 @@
           </li>
           <li>
             <a href="/movies"><span class="fa fa-trophy mr-3"></span> Movies</a>
+          </li>
+          <li>
+            <a href="/manage"><span class="fa fa-data mr-3"></span> Manage Data</a>
           </li>
         </ul>
 
@@ -98,9 +101,24 @@
           </li>   
           @endif
           @if(Auth::id())
-          <li class="nav-item">
-            <a class="nav-link dropdown-toggle" href="{{url('/logout')}}">{{ Auth::user()->name }}</a>
-          </li>     
+        
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
           @endif
         </ul>
         

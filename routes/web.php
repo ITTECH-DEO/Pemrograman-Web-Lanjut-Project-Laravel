@@ -39,3 +39,12 @@ Route::get('/' ,function(){
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/manage', 'ArticleController@index')->name('manage'); 
+Route::get('/articles/add','ArticleController@add');
+Route::get ('/mshome', 'MsmanageController@mshome');
+Route::get ('/msmanageedit', 'MsmanageeditController@msmanageedit');
+Route::get ('/rubah', 'MsmanagerubahController@rubah');
+Route::post('/articles/create','ArticleController@create');
+Route::get('/articles/edit/{id}','ArticleController@edit');
+Route::post('/articles/update/{id}','ArticleController@update');
+Route::get('/articles/delete/{id}','ArticleController@delete');
