@@ -14,6 +14,9 @@ class HomeControllerdash extends Controller
             return \App\Article::all();
         });
    }
+   public function __construct() {     
+    $this->middleware('auth');
+  } 
 
   //public function home1($id) {
 //$article = Article::find($id);

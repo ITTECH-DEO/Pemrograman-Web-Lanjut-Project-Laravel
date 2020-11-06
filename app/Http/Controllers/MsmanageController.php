@@ -9,4 +9,7 @@ class MsmanageController extends Controller
     public function mshomeedit(){
         return view ('msmanageedit');
     }
+    public function __construct() {     
+        $this->middleware('auth');
+      } 
 }

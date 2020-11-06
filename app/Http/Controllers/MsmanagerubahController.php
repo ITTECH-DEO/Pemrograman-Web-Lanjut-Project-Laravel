@@ -9,4 +9,7 @@ class MsmanagerubahController extends Controller
     public function rubah(){
         return view ('msmanagerubah');
     }
+    public function __construct() {     
+        $this->middleware('auth');
+      } 
 }

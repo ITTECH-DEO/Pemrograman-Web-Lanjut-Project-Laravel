@@ -59,20 +59,26 @@
 	  			</div>
 	  		</div>
         <ul class="list-unstyled components mb-5">
-          <li class="active">
-            <a href="/dash"><span class="fa fa-home mr-3"></span> Home</a>
-          </li>
           <li>
             <a href="/article/1"><span class="fa fa-gift mr-3"></span> Articles</a>
           </li>
           <li>
             <a href="/movies"><span class="fa fa-trophy mr-3"></span> Movies</a>
           </li>
-          <li>
-            <a href="/manage"><span class="fa fa-data mr-3"></span> Manage Data</a>
+          <li class="nav-item">
+            @can('dash')
+            <a class="nav-link" href="{{ url('dash') }}">Home
+              @endcan
+             </a>
+          </li>
+          <li class="nav-item">
+            @can('manage')
+            <a class="nav-link" href="{{ url('manage') }}">Manage Data</a>
+            @endcan
+            </a>
           </li>
         </ul>
-
+        
       </nav>
      
 </body>
@@ -94,7 +100,6 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/about">About</a>
             @if(empty(Auth::id()))
           <li class="nav-item">
             <a class="nav-link" href="{{url('/login')}}">Login</a>

@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-class VideosController extends Controller
+use App\User;
+class UserController extends Controller
 {
-    public function videos(){
-        return view ('videos');
+    public function user(){
+        return view ('user');
     }
     public function __construct() {     
         $this->middleware('auth');

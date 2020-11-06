@@ -37,6 +37,38 @@
       @endforeach
       </tbody>
       </table>
+
+      <div class = "col-50">
+<div class = "card">
+<div class = "card-header text-center">
+<h3> Manage Data </h3>
+</div>
+</div>
+</div>
+<table class ="table table-bordered table-striped" > 
+<thead>
+  <tr>
+  <tr>               
+  <th>No</th>               
+  <th>Nama</th>          
+  <th>email</th> 
+  <th>Tools</th> 
+   </tr>   
+   </thead>
+   <tbody>
+   @foreach($users as $a)
+   <tr>
+    <td>{{$a->id}}</td>
+    <td>{{$a->name}}</td>
+    <td>{{$a->email}}</td>
+    <td>
+      <a href = "user/edit/{{ $a->id}}" class = "badge badge-warning">Edit</a>
+      <a href = "user/delete/{{ $a->id}}" class = "badge badge-danger">Hapus</a>
+      </td>
+      </tr>
+      @endforeach
+      </tbody>
+      </table>
       
 @endsection
 
