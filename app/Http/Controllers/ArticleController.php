@@ -71,7 +71,7 @@ class ArticleController extends Controller
               $user = User::find($id);        
                $user->name = $request->name;       
               $user->email = $request->email;        
-                           $article->save();       
+                           $user->save();       
                              return redirect('/manage');    
        } 
        public function userdelete($id)
