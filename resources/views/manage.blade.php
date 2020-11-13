@@ -32,6 +32,7 @@
     <td>
       <a href = "articles/edit/{{ $a->id}}" class = "badge badge-warning">Edit</a>
       <a href = "articles/delete/{{ $a->id}}" class = "badge badge-danger">Hapus</a>
+      <a href="/articles/cetak_pdf" class="btn btn-primary" target="_blank">CETAK PDF</a>
       </td>
       </tr>
       @endforeach
@@ -63,7 +64,7 @@
     <td>{{$a->email}}</td>
     <td>
       <a href = "user/edit/{{ $a->id}}" class = "badge badge-warning">Edit</a>
-      <a href = "user/delete/{{ $a->id}}" class = "badge badge-danger">Hapus</a>
+      <a href = "user/delete/{{ $a->id}}" class = "badge badge-danger">Hapus</a> 
       </td>
       </tr>
       @endforeach
