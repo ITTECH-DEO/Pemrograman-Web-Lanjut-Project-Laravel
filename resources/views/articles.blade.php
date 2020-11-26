@@ -30,7 +30,7 @@
 
         <!-- Preview Image -->
         {{$articles->featured_image}}
-        <img class="card-img-top" src={{$articles->featured_image}} alt="Card image cap">
+        <img class="card-img-top" src="{{asset('/storage/'. $articles->featured_image)}}" alt="Card image cap">
         
         
         <hr>

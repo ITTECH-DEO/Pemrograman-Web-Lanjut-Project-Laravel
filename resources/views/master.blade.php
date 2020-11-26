@@ -54,8 +54,8 @@
         </div>
 	  		<div class="img bg-wrap text-center py-4" style="background-image: url(Side/images/bg_1.jpg);">
 	  			<div class="user-logo">
-	  				<div class="img" style="background-image: url(Side/images/logo1.jpg);"></div>
-	  				<h3>Deo Fahmawan</h3>
+          <div class="img" style="background-image: url({{asset('storage/'. Auth::user() -> featured_image)}});"></div>
+	  				<h3>{{Auth :: user()->name}}</h3>
 	  			</div>
 	  		</div>
         <ul class="list-unstyled components mb-5">
@@ -64,6 +64,9 @@
           </li>
           <li>
             <a href="/movies"><span class="fa fa-trophy mr-3"></span> Movies</a>
+          </li>
+          <li>
+            <a href="/news"><span class="fa fa-news mr-3"></span> News </a>
           </li>
           <li class="nav-item">
             @can('dash')

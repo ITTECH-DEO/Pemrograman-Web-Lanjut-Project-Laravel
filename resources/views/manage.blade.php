@@ -39,37 +39,41 @@
       </tbody>
       </table>
 
-      <div class = "col-50">
-<div class = "card">
-<div class = "card-header text-center">
-<h3> Manage Data </h3>
-</div>
-</div>
-</div>
-<table class ="table table-bordered table-striped" > 
-<thead>
-  <tr>
-  <tr>               
-  <th>No</th>               
-  <th>Nama</th>          
-  <th>email</th> 
-  <th>Tools</th> 
-   </tr>   
-   </thead>
-   <tbody>
-   @foreach($users as $a)
-   <tr>
-    <td>{{$a->id}}</td>
-    <td>{{$a->name}}</td>
-    <td>{{$a->email}}</td>
-    <td>
-      <a href = "user/edit/{{ $a->id}}" class = "badge badge-warning">Edit</a>
-      <a href = "user/delete/{{ $a->id}}" class = "badge badge-danger">Hapus</a> 
+<h3>Daftar User </h3>
+</br>
+<table class="table table-bordered table-striped">
+ <thead>
+ <tr>
+        <th>No</th>
+        <th>Nama</th>
+        <th>Email</th>
+        <th>Roles</th>
+        <th>Foto Profil</th>
+        <th>Tools</th>
+ </tr>
+ </thead>
+ <tbody>
+ @foreach($users as $u)
+ <tr>
+        <td>{{$u->id}}</td>
+        <td>{{$u->name}}</td>
+        <td>{{$u->email}}</td>
+        <td>{{$u->roles}}</td>
+        <td>
+        <img height="80px" src="{{asset('/storage/'. $u->featured_image)}}" alt="">
+        </td>
+        <td>
+        <a href = "user/edit/{{ $u->id}}" class = "badge badge-warning">Edit</a>
+      <a href = "user/delete/{{ $u->id}}" class = "badge badge-danger">Hapus</a> 
+      <a href="/user/cetak_pdf" class="btn btn-primary" target="_blank">CETAK PDF</a>
       </td>
-      </tr>
-      @endforeach
-      </tbody>
-      </table>
+        
+ </tr>
+ @endforeach
+ </body>
+ </table>
+ </div>
+</table>
       
 @endsection
 

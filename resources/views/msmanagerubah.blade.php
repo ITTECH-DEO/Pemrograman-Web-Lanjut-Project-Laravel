@@ -2,7 +2,7 @@
 @section('content')
   <div class="col-100">
     <div class="card">
-       <form action="/articles/update/{{$article->id}}" method="post">
+       <form action="/articles/update/{{$article->id}}" method="post" enctype="multipart/form-data">
                 {{csrf_field()}}
                 <input type="hidden" name="id" value="{{$article->id}}"></br>
                 <div class="form-group">

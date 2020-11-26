@@ -33,7 +33,8 @@ class LoginController extends Controller
               'Administrator' => 'manage',       
                'User'  => 'dash',   
              ];    
-              return $this->redirectTo = route($for[auth()->user()->roles]); } 
+              return $this->redirectTo = route($for[auth()->user()->roles]); 
+            } 
  
 
     /**

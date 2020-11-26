@@ -9,13 +9,13 @@ use Illuminate\Support\Facades\Gate;
 use PDF;
 class ArticleController extends Controller
 {
-    public function __construct() {     
+    /*public function __construct() {     
         //$this->middleware('auth');     
         $this->middleware(function($request, $next){       
               if(Gate::allows('manage-articles')) return $next($request);       
           abort(403, 'Anda tidak memiliki cukup hak akses');   
           }); 
-        }
+        }*/
     public function __invoke($id){
         $article = \App\Article::find($id);
         $article = json_decode(json_encode($article));
@@ -61,7 +61,7 @@ class ArticleController extends Controller
             file_exists(storage_path('app/public/' . $article->featured_image)))    
             {        \Storage::delete('public/'.$article->featured_image);    }  
               $image_name = $request->file('image')->store('images', 'public');   
-               $article->featured_imagee = $image_name; 
+               $article->featured_image = $image_name; 
             $article->save();    
             return redirect('/manage');
          } 
@@ -81,19 +81,33 @@ class ArticleController extends Controller
               $user = User::find($id);        
                $user->name = $request->name;       
               $user->email = $request->email;        
-                           $user->save();       
+              if($user->featured_image && 
+              file_exists(storage_path('app/public/' . $user->featured_image)))    
+              {        \Storage::delete('public/'.$user->featured_image);    }  
+                $image_name = $request->file('image')->store('images', 'public');   
+                 $user->featured_image = $image_name; 
+              $user->save();      
                              return redirect('/manage');    
        } 
+   
        public function userdelete($id)
-  {
-      $users = User::find($id);
-      $users->delete();
-      return redirect('/manage');
-  }
+       {
+           $user = User::find($id);
+           $user->delete();
+           return redirect('/manage');
+       }
+
+        
+        
   public function cetak_pdf(){   
       $article = Article::all();   
       $pdf = PDF::loadview('articles_pdf',['article'=>$article]);   
     return $pdf->stream(); 
+}
+public function cetak_pdfuser(){   
+    $user = User::all();   
+    $pdf = PDF::loadview('user_pdf',['user'=>$user]);   
+  return $pdf->stream(); 
 }
 
     
