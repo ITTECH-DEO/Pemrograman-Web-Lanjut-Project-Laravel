@@ -5,8 +5,8 @@
 </head>
 <body>
 <style type="text/css">
-table tr td{padding:10px 8px; background-color:#f65; color:#fff;},
-table tr th{padding:10px 8px; background-color:#f60; color:#fff;}
+table tr td{padding:2px 4px; background-color:#f65; color:#fff;},
+table tr th{padding:2px 4px; background-color:#f60; color:#fff;}
 font-size: 9pt;
 }
 </style>
@@ -29,7 +29,7 @@ font-size: 9pt;
 <td>{{ $i++ }}</td>
 <td>{{$a->title}}</td>
 <td>{{$a->content}}</td>
-<td><img width="50px" src = "{{public_path('storage/'.$a->featured_image)}}"</td>
+<td><img width="90px" src = "{{public_path('storage/'.$a->featured_image)}}"</td>
 </tr>
 @endforeach
 </tbody>
